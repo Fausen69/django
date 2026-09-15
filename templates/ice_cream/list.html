@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>Анфиса для друзей. Список мороженого</title>
-  </head>
-  <body>
-    <header>
-      <p>Место для логотипа</p>
-      <nav>Навигация</nav>
-    </header>
-    <main>
-      <h1>Каталог мороженого</h1>
-    </main>
-    <footer>
-      <p>Копирайт, год создания</p>
-    </footer>  
-  </body>
-</html>
-
 {% extends "base.html" %}
-
-{% block title %}Анфиса для друзей. Список мороженого{% endblock %}
-
+{% block title %}
+  Анфиса для друзей. Список мороженого
+{% endblock %}
 {% block content %}
   <h1>Каталог мороженого</h1>
+  <ul>
+    {% for ice_cream in ice_cream_list %}
+      <li>
+        <h3>{{ ice_cream.title }}</h3>
+        <p>{{ ice_cream.description }}</p>        
+        <!-- тут должна быть ссылка на ... -->
+      </li>
+      {% if not forloop.last %}
+        <hr>
+      {% endif %}   
+    {% endfor %}
+  </ul>
 {% endblock %}
