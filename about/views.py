@@ -1,5 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def description(request):
-    return HttpResponse('<h1>w</h1>')
+    return render(request, 'about/description.html')

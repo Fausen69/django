@@ -6,18 +6,19 @@ SECRET_KEY = 'django-insecure-oy%f52n92s=%3&b3dh&h)f(b4ag^_z*&3w+ooo!sy-g=449bwn
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'homepage.apps.HomepageConfig',
+    'ice_cream.apps.IceCreamConfig',
+    'about.apps.AboutConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'homepage.apps.HomepageConfig',
-    'ice_cream.apps.IceCreamConfig',
-    'about.apps.AboutConfig',
 ]
 
 MIDDLEWARE = [
@@ -32,10 +33,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'anfisa_for_friends.urls'
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,5 +86,9 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_dev',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
